@@ -31,7 +31,17 @@ jobs:
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
-      - name: Upload IPA to Firebase Distribution
+      - name: Build iOS app
+        run: xcodebuild -workspace ios/YourApp.xcworkspace -scheme YourApp -sdk iphoneos -configuration Release archive -archivePath $PWD/build/YourApp.xcarchive
+      - name: Export IPA
+        
+        run: xcodebuild -exportArchive -archivePath $PWD/build/YourApp.xcarchive -exportOptionsPlist ios/ExportOptions.plist -exportPath $PWD/build
+      - name: Upload to Firebase App Distribution
         run: |
-          ls -la
-          firebase appdistribution:distribute app-${{ github.event.inputs.variant }}-debug.ipa --app 1:592579016825:ios:4d879a5687da55e86e3ca8 --token ${{ secrets.FIREBASE_TOKEN }}
+           curl -sL
+            https://firebase.tools
+            | bash
+                 firebase appdistribution:distribute $PWD/build/YourApp.ipa \
+                   --app ${{ secrets.1:592579016825:ios:4d879a5687da55e86e3ca8 }} \
+                   --token ${{ secrets.FIREBASE_TOKEN }} \
+                   --groups "testers"
