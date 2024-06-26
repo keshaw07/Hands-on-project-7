@@ -34,4 +34,4 @@ jobs:
       - name: Upload IPA to Firebase Distribution
         run: |
           ls -la
-          firebase appdistribution:distribute app-${{ github.event.inputs.variant }}-debug.ipa --app analyticsexample-6aecc --token ${{ secrets.FIREBASE_TOKEN }}
+          firebase appdistribution:distribute app-${{ github.event.inputs.variant }}-debug.ipa --app 1:592579016825:ios:4d879a5687da55e86e3ca8 --token ${{ secrets.FIREBASE_TOKEN }}
