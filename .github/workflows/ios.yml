@@ -32,7 +32,7 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Build iOS app
-        run: xcodebuild -workspace ios/AnalyticsExample.xcworkspace -scheme AnalyticsExample -sdk iphoneos -configuration Release archive -archivePath $PWD/build/YourApp.xcarchive
+        run: xcodebuild -workspace ios/AnalyticsExample.xcworkspace -scheme AnalyticsExample -sdk iphoneos -configuration Release archive -archivePath $PWD/build/AnalyticsExample.xcarchive
       - name: Export IPA
         
         run: xcodebuild -exportArchive -archivePath $PWD/build/AnalyticsExample.xcarchive -exportOptionsPlist ios/ExportOptions.plist -exportPath $PWD/build
@@ -41,7 +41,7 @@ jobs:
            curl -sL
             https://firebase.tools
             | bash
-                 firebase appdistribution:distribute $PWD/build/YourApp.ipa \
+                 firebase appdistribution:distribute $PWD/build/AnalyticsExample.ipa \
                    --app ${{ secrets.analyticsexample-6aecc }} \
                    --token ${{ secrets.FIREBASE_TOKEN }} \
                    --groups "testers"
