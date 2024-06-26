@@ -32,7 +32,7 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Build iOS app
-        run: xcodebuild -workspace ios/YourApp.xcworkspace -scheme AnalyticsExample -sdk iphoneos -configuration Release archive -archivePath $PWD/build/YourApp.xcarchive
+        run: xcodebuild -workspace ios/AnalyticsExample.xcworkspace -scheme AnalyticsExample -sdk iphoneos -configuration Release archive -archivePath $PWD/build/YourApp.xcarchive
       - name: Export IPA
         
         run: xcodebuild -exportArchive -archivePath $PWD/build/AnalyticsExample.xcarchive -exportOptionsPlist ios/ExportOptions.plist -exportPath $PWD/build
