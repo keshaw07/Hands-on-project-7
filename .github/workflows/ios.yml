@@ -42,6 +42,6 @@ jobs:
             https://firebase.tools
             | bash
                  firebase appdistribution:distribute $PWD/build/YourApp.ipa \
-                   --app ${{ secrets.1:592579016825:ios:4d879a5687da55e86e3ca8 }} \
+                   --app ${{ secrets.analyticsexample-6aecc }} \
                    --token ${{ secrets.FIREBASE_TOKEN }} \
                    --groups "testers"
