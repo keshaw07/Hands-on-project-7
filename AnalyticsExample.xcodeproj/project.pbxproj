@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		041979273D994D32CD9CEED5 /* Pods-AnalyticsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnalyticsExample.debug.xcconfig"; path = "Target Support Files/Pods-AnalyticsExample/Pods-AnalyticsExample.debug.xcconfig"; sourceTree = "<group>"; };
+		2E7FBA202C2C96E600CE40E9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2EAA6C592C2B42F300A30970 /* AnalyticsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalyticsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAA6C5C2C2B42F300A30970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EAA6C5E2C2B42F300A30970 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		2EAA6C502C2B42F300A30970 = {
 			isa = PBXGroup;
 			children = (
+				2E7FBA202C2C96E600CE40E9 /* PrivacyInfo.xcprivacy */,
 				2EAA6C5B2C2B42F300A30970 /* AnalyticsExample */,
 				2EAA6C5A2C2B42F300A30970 /* Products */,
 				F3479317D09BFAA564D15476 /* Pods */,
